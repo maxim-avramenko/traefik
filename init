@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+docker network create traefik \
+	-d bridge \
+	--scope local \
+	--attachable \
+	--label com.docker.compose.network=traefik
+
+docker-compose up -d reverse-proxy
