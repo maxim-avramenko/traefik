@@ -6,4 +6,16 @@ docker network create traefik \
 	--attachable \
 	--label com.docker.compose.network=traefik
 
+docker network create registry \
+	-d bridge \
+	--scope local \
+	--attachable \
+	--label com.docker.compose.network=registry
+
+docker network create teamcity \
+	-d bridge \
+	--scope local \
+	--attachable \
+	--label com.docker.compose.network=teamcity
+
 docker-compose up -d reverse-proxy

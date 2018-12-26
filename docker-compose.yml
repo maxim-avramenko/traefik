@@ -2,6 +2,7 @@ version: '3'
 services:
   reverse-proxy:
     image: traefik
+    container_name: reverse-proxy
     restart: always
     command: "--api --docker --docker.domain=local"
     ports:
@@ -14,3 +15,9 @@ networks:
   default:
     external:
       name: traefik
+  registry:
+    external:
+      name: registry
+  teamcity:
+    external:
+      name: teamcity
