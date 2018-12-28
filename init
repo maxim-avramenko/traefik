@@ -18,4 +18,10 @@ docker network create teamcity \
 	--attachable \
 	--label com.docker.compose.network=teamcity
 
+docker network create monitoring \
+	-d bridge \
+	--scope local \
+	--attachable \
+	--label com.docker.compose.network=monitoring
+
 docker-compose up -d reverse-proxy

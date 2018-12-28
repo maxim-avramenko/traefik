@@ -8,6 +8,7 @@ services:
     networks:
       - registry
       - teamcity
+      - monitoring
     ports:
       - "80:80"
       - "8080:8080"
@@ -24,3 +25,6 @@ networks:
   teamcity:
     external:
       name: teamcity
+  monitoring:
+    external:
+      name: monitoring
