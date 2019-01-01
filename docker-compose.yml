@@ -9,6 +9,9 @@ services:
       - registry
       - teamcity
       - monitoring
+      - elasticsearch
+      - traefik_webgateway
+      - selenoid
     ports:
       - "80:80"
       - "8080:8080"
@@ -28,3 +31,12 @@ networks:
   monitoring:
     external:
       name: monitoring
+  elasticsearch:
+    external:
+      name: elasticsearch
+  traefik_webgateway:
+    external:
+      name: traefik_webgateway
+  selenoid:
+    external:
+      name: selenoid

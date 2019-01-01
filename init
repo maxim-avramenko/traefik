@@ -1,27 +1,15 @@
 #!/usr/bin/env bash
 
-docker network create traefik \
-	-d bridge \
-	--scope local \
-	--attachable \
-	--label com.docker.compose.network=traefik
+docker network create traefik
 
-docker network create registry \
-	-d bridge \
-	--scope local \
-	--attachable \
-	--label com.docker.compose.network=registry
+docker network create registry
 
-docker network create teamcity \
-	-d bridge \
-	--scope local \
-	--attachable \
-	--label com.docker.compose.network=teamcity
+docker network create teamcity
 
-docker network create monitoring \
-	-d bridge \
-	--scope local \
-	--attachable \
-	--label com.docker.compose.network=monitoring
+docker network create monitoring
+
+docker network create elasticsearch
+
+docker network create selenoid
 
 docker-compose up -d reverse-proxy
