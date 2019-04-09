@@ -1,42 +1,18 @@
 version: '3'
 services:
-  reverse-proxy:
-    image: traefik
-    container_name: reverse-proxy
+
+  proxy:
+    image: traefik:latest
+    container_name: traefik
     restart: always
-    command: "--api --docker --docker.domain=local"
-    networks:
-      - registry
-      - teamcity
-      - monitoring
-      - elasticsearch
-      - traefik_webgateway
-      - selenoid
     ports:
       - "80:80"
       - "8080:8080"
       - "443:443"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-networks:
-  default:
-    external:
-      name: traefik
-  registry:
-    external:
-      name: registry
-  teamcity:
-    external:
-      name: teamcity
-  monitoring:
-    external:
-      name: monitoring
-  elasticsearch:
-    external:
-      name: elasticsearch
-  traefik_webgateway:
-    external:
-      name: traefik_webgateway
-  selenoid:
-    external:
-      name: selenoid
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./traefik.toml:/traefik.toml"
+      - "tmp:/tmp"
+
+volumes:
+  tmp:

@@ -1,15 +1,47 @@
 #!/usr/bin/env bash
 
-docker network create traefik
+# create docker networks for services
+NETWORKS=(
+	traefik
+	traefik_webgateway
+	registry
+	teamcity
+	monitoring
+	elasticsearch
+	selenoid
+	django
+	geoserver
+	nodejs
+	postgis
+	postgres
+	mapproxy
+	gitlab
+)
 
-docker network create registry
+check-network()
+{
+    echo $(docker network ls --format "{{.Name}}" | grep -x "${i}")
+}
 
-docker network create teamcity
+if [[ ${#@} > 0 ]]; then
+    NETWORKS=(${@})
+fi
 
-docker network create monitoring
+# create docker external networks
+for i in "${NETWORKS[@]}"
+do
+    CHECK_NETWORK=$(check-network)
+    if [[ ${#CHECK_NETWORK} == 0 ]]; then
+        docker network create ${i}
+        echo "Creating new network: '${i}'"
+    else
+        echo "Network '"${i}"' already exist"
+    fi
+done
 
-docker network create elasticsearch
-
-docker network create selenoid
-
-docker-compose up -d reverse-proxy
+unset i
+unset NETWORKS
+unset CHECK_NETWORK
+echo "Start traefik service ..."
+# start revert-proxy service
+docker-compose up -d

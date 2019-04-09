@@ -2,7 +2,7 @@ Traefik
 =======
 
 traefik is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease.
-Complete documentation is available at https://traefik.io
+Complete documentation is available at <https://traefik.io>
 
 Usage: traefik [flags] <command> [<arguments>]
 

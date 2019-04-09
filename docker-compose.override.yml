@@ -1,0 +1,64 @@
+version: '3'
+services:
+
+  proxy:
+    networks:
+      - traefik
+      - registry
+      - teamcity
+      - monitoring
+      - elasticsearch
+      - traefik_webgateway
+      - selenoid
+      - django
+      - geoserver
+      - nodejs
+      - postgis
+      - postgres
+      - mapproxy
+      - mysql
+      - php
+      - openresty
+      - memcached
+      - redis
+      - gitlab
+
+networks:
+  traefik:
+    external: true
+  registry:
+    external: true
+  teamcity:
+    external: true
+  monitoring:
+    external: true
+  elasticsearch:
+    external: true
+  traefik_webgateway:
+    external: true
+  selenoid:
+    external: true
+  django:
+    external: true
+  geoserver:
+    external: true
+  nodejs:
+    external: true
+  postgis:
+    external: true
+  postgres:
+    external: true
+  mapproxy:
+    external: true
+  mysql:
+    external: true
+  php:
+    external: true
+  openresty:
+    external: true
+  memcached:
+    external: true
+  redis:
+    external: true
+  gitlab:
+    external: true
