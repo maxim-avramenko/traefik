@@ -154,7 +154,7 @@ endpoint = "unix:///var/run/docker.sock"
 # Optional
 # Default: ""
 #
-domain = "docker.local"
+domain = ""
 
 # Enable watch docker changes.
 #

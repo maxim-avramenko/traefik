@@ -1,6 +1,16 @@
 Traefik
 =======
 
+Используется в качестве реверсивного прокси сервера
+
+    ./init [NETWORK NAMES]
+    
+Например:
+
+    ./init my-network new-network kong-net another-net
+    
+Будут созданы внешние сети docker и запущен сервис traefik
+
 traefik is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease.
 Complete documentation is available at <https://traefik.io>
 
