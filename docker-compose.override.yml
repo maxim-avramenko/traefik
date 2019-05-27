@@ -4,11 +4,12 @@ services:
   proxy:
     networks:
       - traefik
+      - traefik_webgateway
       - registry
       - teamcity
       - monitoring
+      - mysql
       - elasticsearch
-      - traefik_webgateway
       - selenoid
       - django
       - geoserver
@@ -16,7 +17,6 @@ services:
       - postgis
       - postgres
       - mapproxy
-      - mysql
       - php
       - openresty
       - memcached
