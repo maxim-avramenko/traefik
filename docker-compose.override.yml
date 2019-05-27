@@ -22,6 +22,7 @@ services:
       - memcached
       - redis
       - gitlab
+      - static
 
 networks:
   traefik:
@@ -62,3 +63,6 @@ networks:
     external: true
   gitlab:
     external: true
+  static:
+    external: true
+
